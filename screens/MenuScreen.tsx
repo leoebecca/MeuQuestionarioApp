@@ -20,6 +20,7 @@ export default function MenuScreen() {
         console.log('URI do arquivo:', uri);
         console.log('Tipo do arquivo (MIME):', mimeType);
 
+        // Verificando se é um arquivo aceito
         if (mimeType === 'application/pdf') {
           const pdfConteudo = await lerPDF(uri);
           processarConteudo(pdfConteudo);
@@ -30,13 +31,13 @@ export default function MenuScreen() {
           const txtConteudo = await FileSystem.readAsStringAsync(uri);
           processarConteudo(txtConteudo);
         } else {
-          Alert.alert('Erro', 'Formato de arquivo não suportado.');
+          Alert.alert('Erro', 'Formato de arquivo não suportado. Aceitamos apenas PDF, DOCX e TXT.');
         }
       } else {
-        Alert.alert('Cancelado', 'Carregamento do arquivo foi cancelado');
+        Alert.alert('Carregamento cancelado', 'O carregamento do arquivo foi cancelado.');
       }
     } catch (error) {
-      Alert.alert('Erro', 'Ocorreu um erro ao carregar o arquivo');
+      Alert.alert('Erro ao carregar arquivo', `Erro: ${error.message}`);
       console.log('Erro:', error);
     }
   };
