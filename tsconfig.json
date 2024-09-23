@@ -1,0 +1,21 @@
+{
+  "extends": "expo/tsconfig.base",
+  "compilerOptions": {
+    "strict": true,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noImplicitAny": false, 
+    "module": "esnext",
+    "target": "es5",
+    "lib": ["esnext", "dom"],
+    "baseUrl": "./",
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["./*.tsx", "./screens/*.tsx"],  // Inclui arquivos da raiz e da pasta screens
+  "exclude": ["node_modules", "build", "dist"]
+}
